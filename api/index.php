@@ -14,9 +14,7 @@ $user_first_name = $input_data["message"]['chat']['first_name'];
 
 $user_last_name = $input_data["message"]['chat']['last_name'];
 
-if (!empty($input_data["message"]['document']['file_id'])) {
-    $file_id = $input_data["message"]['document']['file_id'];
-}
+$file_id = $input_data["message"]['document']['file_id'];
 
 $token = "5879963018:AAHUAi2cio99Nsgt4Ej78mKeGqZ9VUaLldo";
 
@@ -27,8 +25,7 @@ if ($user_message == "/start") {
     \n\n Ex File-id : BQACAgUAAxkBAAIKqWPFgQ3pPLeKAz0ad3rJTy-1M2pyAAJ-CgACFpopVm2LMdgNKEQQLQQ";
     $message = urlencode($message_encode);
     file_get_contents("https://api.telegram.org/bot$token/sendMessage?chat_id=$user_id&text=$message&parse_mode=HTML&disable_web_page_preview=TRUE");
-} 
-elseif (!empty($file_id)) {
+} elseif (!empty($file_id)) {
     file_get_contents("https://api.telegram.org/$token/sendVideo?chat_id=$user_id&video=$file_id");
 } else {
     $message_encode = "Hey Your Message is Invalid 😟 \n\n Try sending Me a Video / Document OR FileID.😊";
