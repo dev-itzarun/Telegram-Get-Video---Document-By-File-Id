@@ -4,6 +4,8 @@ $input = file_get_contents("php://input");
 
 $input_data = json_decode($input, true);
 
+// file_put_contents('php://stderr', print_r($input_data, TRUE));
+
 $user_message = $input_data["message"]["text"];
 
 $user_id = $input_data["message"]['chat']['id'];
