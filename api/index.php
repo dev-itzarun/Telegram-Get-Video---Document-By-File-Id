@@ -29,7 +29,7 @@ if ($user_message == "/start") {
 elseif (!empty($file_id)) {
     file_get_contents("https://api.telegram.org/$token/sendVideo?chat_id=$user_id&video=$file_id");
 } else {
-    $message_encode = "Hey Your Message is Invalid 😟 \n\n Try sending only Unsplash.com link's 😊";
+    $message_encode = "Hey Your Message is Invalid 😟 \n\n Try sending Me a Video / Document OR FileID.😊";
     $message = urlencode($message_encode);
     file_get_contents("https://api.telegram.org/bot$token/sendMessage?chat_id=$user_id&text=$message&parse_mode=HTML");
 }
